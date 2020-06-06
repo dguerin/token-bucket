@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30104.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeveloperShelf.TokenBucket.Manager", "DeveloperShelf.TokenBucket.Manager\DeveloperShelf.TokenBucket.Manager.csproj", "{74EF8CE9-0FB0-4500-BA3C-2D5C276744E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeveloperShelf.TokenBucket.Tests", "DeveloperShelf.TokenBucket.Tests\DeveloperShelf.TokenBucket.Tests.csproj", "{2D46C768-73A4-4948-A945-870BA90ABB40}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74EF8CE9-0FB0-4500-BA3C-2D5C276744E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74EF8CE9-0FB0-4500-BA3C-2D5C276744E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74EF8CE9-0FB0-4500-BA3C-2D5C276744E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74EF8CE9-0FB0-4500-BA3C-2D5C276744E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D46C768-73A4-4948-A945-870BA90ABB40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D46C768-73A4-4948-A945-870BA90ABB40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D46C768-73A4-4948-A945-870BA90ABB40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D46C768-73A4-4948-A945-870BA90ABB40}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ED474AA9-E238-4897-9097-9B8193F660F9}
+	EndGlobalSection
+EndGlobal
