@@ -21,6 +21,8 @@ namespace DeveloperShelf.TokenBucket.Tests
         [InlineData(10, 1, 2000, 15, 20)]
         [InlineData(100, 1, 2000, 100, 200)]
         [InlineData(100, 10, 2000, 100, 200)]
+        [InlineData(100, 10, 5000, 250, 500)]
+        [InlineData(100, 10, 10000, 500, 1000)]
         public void BasicExecutionTest(
             int bucketSize,
             int operationDurationInMilliseconds, 
