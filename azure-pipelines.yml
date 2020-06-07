@@ -9,11 +9,30 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+variables:
+  BuildPlatform: 'any cpu'
+  BuildConfiguration: 'release'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+stages:
+- stage: build
+  displayName: Build and Test
+
+  jobs:
+  - job: build
+    displayName: Build
+    steps: 
+      - task: DotNetCoreCLI@2
+        displayName: Building Source
+        inputs:
+          command: 'build'
+          projects: 'src/DeveloperShelf.TokenBucket/DeveloperShelf.TokenBucket.csproj'
+  
+  - job: test
+    displayName: Test
+    dependsOn: build
+    steps:
+      - task: DotNetCoreCLI@2
+        displayName: Building Tests
+        inputs:
+          command: 'test'
+          projects: 'src/DeveloperShelf.TokenBucket.Tests/DeveloperShelf.TokenBucket.Tests.csproj'
