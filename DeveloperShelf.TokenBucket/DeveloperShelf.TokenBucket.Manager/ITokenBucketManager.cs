@@ -16,9 +16,8 @@ namespace DeveloperShelf.TokenBucket.Manager
         /// </summary>
         /// <param name="func">The function to execute</param>
         /// <param name="bucketSize">Specify the bucket size to control flow</param>
-        /// <param name="time">Defaults to 1 second intervals</param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        Task StartAsync<T>(Func<Task<T>> func, int bucketSize, TimeSpan time, CancellationToken cancellationToken = new CancellationToken());
+        Task StartAsync<T>(Func<Task<T>> func, int bucketSize, CancellationToken cancellationToken = new CancellationToken());
     }
 }
