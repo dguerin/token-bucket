@@ -1,0 +1,38 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  BuildPlatform: 'any cpu'
+  BuildConfiguration: 'release'
+
+stages:
+- stage: build
+  displayName: Build and Test
+
+  jobs:
+  - job: build
+    displayName: Build
+    steps: 
+      - task: DotNetCoreCLI@2
+        displayName: Building Source
+        inputs:
+          command: 'build'
+          projects: 'src/DeveloperShelf.TokenBucket/DeveloperShelf.TokenBucket.csproj'
+  
+  - job: test
+    displayName: Test
+    dependsOn: build
+    steps:
+      - task: DotNetCoreCLI@2
+        displayName: Building Tests
+        inputs:
+          command: 'test'
+          projects: 'src/DeveloperShelf.TokenBucket.Tests/DeveloperShelf.TokenBucket.Tests.csproj'
