@@ -35,4 +35,4 @@ stages:
         displayName: Building Tests
         inputs:
           command: 'test'
-          projects: 'src/DeveloperShelf.TokenBucket.Tests/DeveloperShelf.TokenBucket.Tests.csproj'
+          projects: 'test/DeveloperShelf.TokenBucket.Tests/DeveloperShelf.TokenBucket.Tests.csproj'
