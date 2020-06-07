@@ -13,22 +13,20 @@ namespace DeveloperShelf.TokenBucket.Tests
         /// <param name="bucketSize">Represents the number of operations that are allowed per unit time</param>
         /// <param name="operationDurationInMilliseconds">Represents the fake operation duration</param>
         /// <param name="cancelRequestedInMilliseconds">Represents how long the test will run for</param>
-        /// <param name="expectedInvocationRangeLower">Represents the expected lower limit of invocation of the fake function</param>
-        /// <param name="expectedInvocationRangeUpper">Represents the expected upper limit of invocations of the fake function</param>
+        /// <param name="expectedInvocationLimit">Represents the expected upper limit of invocations of the fake function</param>
         [Theory]
-        [InlineData(10, 1000, 2000, 1, 2)]
-        [InlineData(10, 100, 2000, 15, 20)]
-        [InlineData(10, 1, 2000, 15, 20)]
-        [InlineData(100, 1, 2000, 100, 200)]
-        [InlineData(100, 10, 2000, 100, 200)]
-        [InlineData(100, 10, 5000, 250, 500)]
-        [InlineData(100, 10, 10000, 500, 1000)]
-        public void BasicExecutionTest(
+        [InlineData(10, 1000, 2000, 2)]
+        [InlineData(10, 100, 2000, 20)]
+        [InlineData(10, 1, 2000, 20)]
+        [InlineData(100, 1, 2000, 200)]
+        [InlineData(100, 10, 2000, 200)]
+        [InlineData(100, 10, 5000, 500)]
+        [InlineData(100, 10, 10000, 1000)]
+        public void EnsureExecutionLimit(
             int bucketSize,
             int operationDurationInMilliseconds, 
             int cancelRequestedInMilliseconds,
-            int expectedInvocationRangeLower,
-            int expectedInvocationRangeUpper)
+            int expectedInvocationLimit)
         {
             var cancellationToken = new CancellationTokenSource();
 
@@ -48,7 +46,7 @@ namespace DeveloperShelf.TokenBucket.Tests
             
             Task.WaitAll(task1, task2);
 
-            Assert.InRange(manager.InvocationCount, expectedInvocationRangeLower, expectedInvocationRangeUpper );
+            Assert.True(manager.InvocationCount <= expectedInvocationLimit);
         }
     }
 }

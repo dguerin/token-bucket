@@ -14,8 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DeveloperShelf.TokenBucket.Manager\DeveloperShelf.TokenBucket.Manager.csproj" />
-    <ProjectReference Include="..\DeveloperShelf.TokenBucket\DeveloperShelf.TokenBucket.csproj" />
+    <ProjectReference Include="..\..\src\DeveloperShelf.TokenBucket\DeveloperShelf.TokenBucket.csproj" />
   </ItemGroup>
 
 </Project>
